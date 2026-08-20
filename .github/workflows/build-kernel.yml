@@ -178,11 +178,6 @@ jobs:
       - name: Apply kernel patches
         run: bash scripts/patches.sh all
 
-              - name: Show rejected patch hunks
-        if: failure()
-        run: |
-          find ${{ github.workspace }} -name "*.rej" -exec echo "=== {} ===" \; -exec cat {} \;
-
       - name: Set up ccache
         if: env.ENABLE_CCACHE == 'true'
         uses: hendrikmuhs/ccache-action@v1.2
